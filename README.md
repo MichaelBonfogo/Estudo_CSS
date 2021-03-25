@@ -1,2 +1,5 @@
 # Estudo_CSS
- Meus estudo sobre CSS.
+ Meus estudos sobre CSS.
+
+ Autor: Michael Douglas Bonfogo
+ Tecnologia: CSS
