@@ -235,39 +235,411 @@ CSS How To - Como adicionar CSS
 
  Quando um navegador lê uma folha de estilo, ele formata o documento HTML de acordo com as informações na folha de estilo.
  Três maneiras de inserir CSS
+ 
  Existem três maneiras de inserir uma folha de estilo:
   CSS Externo
   CSS Interno
   CSS Inline
 
-CSS Externo
- Com uma folha de estilo externa, você pode alterar a aparência de um site inteiro alterando apenas um arquivo!
- Cada página HTML deve incluir uma referência ao arquivo de folha de estilo externo dentro do elemento <link>, dentro da seção head.
+ CSS Externo
+  Com uma folha de estilo externa, você pode alterar a aparência de um site inteiro alterando apenas um arquivo!
+  Cada página HTML deve incluir uma referência ao arquivo de folha de estilo externo dentro do elemento <link>, dentro da seção head.
 
  Exemplo
- Os estilos externos são definidos no elemento <link>, dentro da seção <head> de uma página HTML:
+  Os estilos externos são definidos no elemento <link>, dentro da seção <head> de uma página HTML:
 
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="mystyle.css">
+ <link rel="stylesheet" href="mystyle.css">
 </head>
-<body>
 
+<body>
 <h1>This is a heading</h1>
 <p>This is a paragraph.</p>
-
 </body>
 </html>
 
+ Uma folha de estilo externa pode ser escrita em qualquer editor de texto e deve ser salva com uma extensão .css.
+ O arquivo .css externo não deve conter nenhuma tag HTML.
+ Esta é a aparência do arquivo "mystyle.css":
+
+"mystyle.css"
+
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: navy;
+  margin-left: 20px;
+}
+
+ Nota: Não adicione um espaço entre o valor da propriedade e a unidade (como margin-left: 20 px;). A maneira correta é:margin-left: 20px;
+
+
+CSS Interno
+ Uma folha de estilo interna pode ser usada se uma única página HTML tiver um estilo exclusivo.
+ O estilo interno é definido dentro do elemento <style>, dentro da seção head.
+
+ Exemplo
+ Os estilos internos são definidos no elemento <style>, dentro da seção <head> de uma página HTML:
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+body {
+  background-color: linen;
+}
+
+h1 {
+  color: maroon;
+  margin-left: 40px;
+}
+</style>
+</head>
+
+<body>
+<h1>This is a heading</h1>
+<p>This is a paragraph.</p>
+</body>
+</html>
+
+
+CSS Inline
+ Um estilo embutido pode ser usado para aplicar um estilo único a um único elemento.
+ Para usar estilos embutidos, adicione o atributo de estilo ao elemento relevante. O atributo style pode conter qualquer propriedade CSS.
+
+Exemplo
+ Os estilos inline são definidos no atributo "style" do elemento relevante:
+
+<!DOCTYPE html>
+<html>
+body>
+ <h1 style="color:blue;text-align:center;">This is a heading</h1>
+ <p style="color:red;">This is a paragraph.</p>
+</body>
+</html>
+
+Dica: Um estilo embutido perde muitas das vantagens de uma folha de estilo (ao misturar conteúdo com apresentação). Use este método com moderação.
+
+
+Várias folhas de estilo
+ Se algumas propriedades foram definidas para o mesmo seletor (elemento) em diferentes folhas de estilo, o valor da última folha de estilo lida será usado.
+
+ Suponha que uma folha de estilo externa tenha o seguinte estilo para o elemento <h1>:
+
+h1 {
+  color: navy;
+}
+
+Então, suponha que uma folha de estilo interna também tenha o seguinte estilo para o elemento <h1>:
+
+h1 {
+  color: orange;   
+}
+
+
+ No entanto, se o estilo interno for definido antes do link para a folha de estilo externa, os elementos <h1> serão "navy": 
+
+<head>
+<style>
+h1 {
+  color: orange;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+
+
+Ordem em Cascata
+ Qual estilo será usado quando houver mais de um estilo especificado para um elemento HTML?
+ Todos os estilos em uma página serão "cascateados" em uma nova folha de estilos "virtual" pelas seguintes regras, onde o número um tem a prioridade mais alta:
+
+ Estilo embutido (dentro de um elemento HTML)
+  Folhas de estilo externas e internas (na seção principal)
+   Padrão do navegador
+    Portanto, um estilo embutido tem a prioridade mais alta e substituirá os estilos externos e internos e os padrões do navegador.
 ------------------------------------------------------------------
+
 Comentários CSS
+
+ Os comentários CSS não são exibidos no navegador, mas podem ajudar a documentar seu código-fonte.
+ Os comentários são usados ​​para explicar o código e podem ajudar quando você editar o código-fonte em uma data posterior.
+ Os comentários são ignorados pelos navegadores.
+ Um comentário CSS é colocado dentro do <style> elemento e começa /* e termina com */:
+
+Exemplo
+/* This is a single-line comment */
+p {
+  color: red;
+}
+
+Os comentários também podem abranger várias linhas: 
+
+Exemplo
+/* This is
+a multi-line
+comment */
+
+p {
+  color: red;
+}
+
+Comentários HTML e CSS
+No tutorial de HTML, você aprendeu que pode adicionar comentários ao código-fonte HTML usando a <!--...-->sintaxe.
+
+No exemplo a seguir, usamos uma combinação de comentários HTML e CSS:
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+p {
+  color: red; /* Set text color to red */
+}
+</style>
+</head>
+
+<body>
+<h2>My Heading</h2>
+
+<!-- These paragraphs will be red -->
+<p>Hello World!</p>
+<p>This paragraph is styled with CSS.</p>
+<p>CSS comments are not shown in the output.</p>
+
+</body>
+</html>
 
 
 ------------------------------------------------------------------
 Cores CSS
 
+ As cores são especificadas usando nomes de cores predefinidos ou valores RGB, HEX, HSL, RGBA, HSLA.
 
+ Nomes de cores CSS
+ Em CSS, uma cor pode ser especificada usando um nome de cor predefinido:
+
+Tomate
+laranja
+Trapaceiro azul
+MediumSeaGreen
+cinza
+Azul ardósia
+Tolet
+Cinza claro
+
+ CSS / HTML suporta 140 nomes de cores padrão . : https://www.w3schools.com/colors/colors_names.asp
+ CSS Background Color
+ 
+Você pode definir a cor de fundo para elementos HTML:
+
+ Exemplo
+<h1 style="background-color:DodgerBlue;">Hello World</h1>
+<p style="background-color:Tomato;">Lorem ipsum...</p>
+
+Cor do Texto CSS
+ Você pode definir a cor do texto:
+
+ Exemplo
+<h1 style="color:Tomato;">Hello World</h1>
+<p style="color:DodgerBlue;">Lorem ipsum...</p>
+<p style="color:MediumSeaGreen;">Ut wisi enim...</p>
+
+CSS Border Color
+ Você pode definir a cor das bordas:
+
+Exemplo
+<h1 style="border:2px solid Tomato;">Hello World</h1>
+<h1 style="border:2px solid DodgerBlue;">Hello World</h1>
+<h1 style="border:2px solid Violet;">Hello World</h1>
+
+Valores de cores CSS
+ Em CSS, as cores também podem ser especificadas usando valores RGB, valores HEX, valores HSL, valores RGBA e valores HSLA:
+
+Igual ao nome da cor "Tomate":
+
+ Exemplo
+<h1 style="background-color:rgb(255, 99, 71);">...</h1>
+<h1 style="background-color:#ff6347;">...</h1>
+<h1 style="background-color:hsl(9, 100%, 64%);">...</h1>
+
+<h1 style="background-color:rgba(255, 99, 71, 0.5);">...</h1>
+<h1 style="background-color:hsla(9, 100%, 64%, 0.5);">...</h1>
+------------------------------------------------------------------
+
+CSS RGB Colors
+ Um valor de cor RGB representa as fontes de luz VERMELHA, VERDE e AZUL.
+
+Valor RGB
+ Em CSS, uma cor pode ser especificada como um valor RGB, usando esta fórmula:
+ rgb ( vermelho, verde , azul )
+ Cada parâmetro (vermelho, verde e azul) define a intensidade da cor entre 0 e 255.
+ Por exemplo, rgb (255, 0, 0) é exibido em vermelho, porque vermelho está definido com seu valor mais alto (255) e os outros são definidos como 0.
+ Para exibir o preto, defina todos os parâmetros de cor para 0, como este: rgb (0, 0, 0).
+ Para exibir o branco, defina todos os parâmetros de cor para 255, como este: rgb (255, 255, 255).
+
+Valor RGBA
+ Os valores de cores RGBA são uma extensão dos valores de cores RGB com um canal alfa - que especifica a opacidade de uma cor.
+ Um valor de cor RGBA é especificado com:
+ rgba ( vermelho, verde , azul, alfa )
+ O parâmetro alfa é um número entre 0,0 (totalmente transparente) e 1,0 (nem um pouco transparente):
+
+
+CSS HEX Colors
+ Uma cor hexadecimal é especificada com: #RRGGBB, onde os inteiros hexadecimais RR (vermelho), GG (verde) e BB (azul) especificam os componentes da cor.
+
+Valor HEX
+ Em CSS, uma cor pode ser especificada usando um valor hexadecimal na forma:
+
+# rrggbb
+
+ Onde rr (vermelho), gg (verde) e bb (azul) são valores hexadecimais entre 00 e ff (igual ao decimal 0-255).
+ Por exemplo, # ff0000 é exibido em vermelho, porque o vermelho é definido com seu valor mais alto (ff) e os outros são definidos com o valor mais baixo (00).
+
+Valor HEX de 3 dígitos
+ Às vezes, você verá um código hexadecimal de 3 dígitos na fonte CSS.
+ O código hexadecimal de 3 dígitos é uma abreviação para alguns códigos hexadecimais de 6 dígitos.
+ O código hexadecimal de 3 dígitos tem o seguinte formato:
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 style="background-color:#ff0000;">#ff0000</h1>
+<h1 style="background-color:#0000ff;">#0000ff</h1>
+<h1 style="background-color:#3cb371;">#3cb371</h1>
+<h1 style="background-color:#ee82ee;">#ee82ee</h1>
+<h1 style="background-color:#ffa500;">#ffa500</h1>
+<h1 style="background-color:#6a5acd;">#6a5acd</h1>
+
+<p>In HTML, you can specify colors using Hex values.</p>
+
+</body>
+</html>
+
+# rgb
+
+ Onde r, g e b representam os componentes vermelho, verde e azul com valores entre 0 e f.
+ O código hexadecimal de 3 dígitos só pode ser usado quando ambos os valores (RR, GG e BB) são os mesmos para cada componente. Portanto, se temos # ff00cc, pode ser escrito assim: # f0c.
+
+ <!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: #fc9; /* same as #ffcc99 */
+}
+
+h1 {
+  color: #f0f; /* same as #ff00ff */
+}
+
+p {
+  color: #b58; /* same as #bb5588 */
+}
+</style>
+</head>
+<body>
+
+<h1>CSS 3-digit Hex Code</h1>
+<p>This is a paragraph.</p>
+
+</body>
+</html>
+
+
+
+CSS HSL Colors
+ HSL significa matiz, saturação e luminosidade.
+
+Valor HSL
+ Em CSS, uma cor pode ser especificada usando matiz, saturação e luminosidade (HSL) na forma:
+
+ hsl ( matiz , saturação , luminosidade )
+
+ Matiz é um grau na roda de cores de 0 a 360. 0 é vermelho, 120 é verde e 240 é azul.
+ A saturação é um valor percentual, 0% significa um tom de cinza e 100% é a cor total.
+ A claridade também é uma porcentagem, 0% é preto, 50% não é nem claro nem escuro, 100% é branco
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 style="background-color:hsl(0, 100%, 50%);">hsl(0, 100%, 50%)</h1>
+<h1 style="background-color:hsl(240, 100%, 50%);">hsl(240, 100%, 50%)</h1>
+<h1 style="background-color:hsl(147, 50%, 47%);">hsl(147, 50%, 47%)</h1>
+<h1 style="background-color:hsl(300, 76%, 72%);">hsl(300, 76%, 72%)</h1>
+<h1 style="background-color:hsl(39, 100%, 50%);">hsl(39, 100%, 50%)</h1>
+<h1 style="background-color:hsl(248, 53%, 58%);">hsl(248, 53%, 58%)</h1>
+
+<p>In HTML, you can specify colors using HSL values.</p>
+
+</body>
+</html>
+
+Saturação
+ A saturação pode ser descrita como a intensidade de uma cor.
+ 100% é cor pura, sem tons de cinza
+ 50% é 50% cinza, mas você ainda pode ver a cor.
+ 0% é completamente cinza, você não pode mais ver a cor.
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 style="background-color:hsl(0, 100%, 50%);">hsl(0, 100%, 50%)</h1>
+<h1 style="background-color:hsl(0, 80%, 50%);">hsl(0, 80%, 50%)</h1>
+<h1 style="background-color:hsl(0, 60%, 50%);">hsl(0, 60%, 50%)</h1>
+<h1 style="background-color:hsl(0, 40%, 50%);">hsl(0, 40%, 50%)</h1>
+<h1 style="background-color:hsl(0, 20%, 50%);">hsl(0, 20%, 50%)</h1>
+<h1 style="background-color:hsl(0, 0%, 50%);">hsl(0, 0%, 50%)</h1>
+
+<p>With HSL colors, less saturation mean less color. 0% is completely gray.</p>
+
+</body>
+</html>
+
+Leveza
+ A claridade de uma cor pode ser descrita como a quantidade de luz que você deseja dar à cor, onde 0% significa sem luz (preto), 50% significa 50% de luz (nem escuro nem claro) 100% significa claridade total (branco).
+
+<h1 style="background-color:hsl(0, 100%, 0%);">hsl(0, 100%, 0%)</h1>
+<h1 style="background-color:hsl(0, 100%, 25%);">hsl(0, 100%, 25%)</h1>
+<h1 style="background-color:hsl(0, 100%, 50%);">hsl(0, 100%, 50%)</h1>
+<h1 style="background-color:hsl(0, 100%, 75%);">hsl(0, 100%, 75%)</h1>
+<h1 style="background-color:hsl(0, 100%, 90%);">hsl(0, 100%, 90%)</h1>
+<h1 style="background-color:hsl(0, 100%, 100%);">hsl(0, 100%, 100%)</h1>
+
+Tons de cinza são frequentemente definidos definindo o matiz e a saturação para 0, e ajuste a claridade de 0% a 100% para obter tons mais escuros / mais claros:
+
+<h1 style="background-color:hsl(0, 0%, 0%);">hsl(0, 0%, 0%)</h1>
+<h1 style="background-color:hsl(0, 0%, 24%);">hsl(0, 0%, 24%)</h1>
+<h1 style="background-color:hsl(0, 0%, 47%);">hsl(0, 0%, 47%)</h1>
+<h1 style="background-color:hsl(0, 0%, 71%);">hsl(0, 0%, 71%)</h1>
+<h1 style="background-color:hsl(0, 0%, 94%);">hsl(0, 0%, 94%)</h1>
+<h1 style="background-color:hsl(0, 0%, 100%);">hsl(0, 0%, 100%)</h1>
+
+
+
+Valor HSLA
+ Os valores de cor HSLA são uma extensão dos valores de cor HSL com um canal alfa - que especifica a opacidade de uma cor.
+ Um valor de cor HSLA é especificado com:
+
+ hsla ( matiz, saturação , luminosidade, alfa )
+
+ O parâmetro alfa é um número entre 0,0 (totalmente transparente) e 1,0 (nem um pouco transparente):
+
+<h1 style="background-color:hsla(9, 100%, 64%, 0);">hsla(9, 100%, 64%, 0)</h1>
+<h1 style="background-color:hsla(9, 100%, 64%, 0.2);">hsla(9, 100%, 64%, 0.2)</h1>
+<h1 style="background-color:hsla(9, 100%, 64%, 0.4);">hsla(9, 100%, 64%, 0.4)</h1>
+<h1 style="background-color:hsla(9, 100%, 64%, 0.6);">hsla(9, 100%, 64%, 0.6)</h1>
+<h1 style="background-color:hsla(9, 100%, 64%, 0.8);">hsla(9, 100%, 64%, 0.8)</h1>
+<h1 style="background-color:hsla(9, 100%, 64%, 1);">hsla(9, 100%, 64%, 1)</h1>
 ------------------------------------------------------------------
 Fundos CSS
 
