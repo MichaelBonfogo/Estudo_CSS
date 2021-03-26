@@ -643,6 +643,161 @@ Valor HSLA
 ------------------------------------------------------------------
 Fundos CSS
 
+ Fundos CSS
+ As propriedades de fundo CSS são usadas para adicionar efeitos de fundo para elementos.
+
+Nestes capítulos, você aprenderá sobre as seguintes propriedades de fundo CSS:
+
+background-color
+background-image
+background-repeat
+background-attachment
+background-position
+background (propriedade abreviada)
+
+
+CSS background-color
+ A background-colorpropriedade especifica a cor de fundo de um elemento.
+
+Exemplo
+ A cor de fundo de uma página é definida assim:
+
+body {
+  background-color: lightblue;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: lightblue;
+}
+</style>
+</head>
+
+
+Com CSS, uma cor é mais frequentemente especificada por:
+ um nome de cor válido - como "vermelho"
+ um valor HEX - como "# ff0000"
+ um valor RGB - como "rgb (255,0,0)"
+
+Consulte Valores de cores CSS para obter uma lista completa de valores de cores possíveis.
+
+Outros Elementos
+ Você pode definir a cor de fundo para qualquer elemento HTML:
+
+Exemplo
+ Aqui, os elementos <h1>, <p> e <div> terão cores de fundo diferentes: 
+
+h1 {
+  background-color: green;
+}
+
+div {
+  background-color: lightblue;
+}
+
+p {
+  background-color: yellow;
+}
+
+Opacidade / Transparência
+ A opacity propriedade especifica a opacidade / transparência de um elemento. Pode assumir um valor de 0,0 a 1,0. Quanto menor o valor, mais transparente:
+
+Exemplo
+
+<head>
+<style>
+div {
+  background-color: green;
+}
+
+div.first {
+  opacity: 0.1;
+}
+
+div.second {
+  opacity: 0.3;
+}
+
+div.third {
+  opacity: 0.6;
+}
+</style>
+</head>
+
+Nota: Ao usar a opacity propriedade para adicionar transparência ao plano de fundo de um elemento, todos os seus elementos filhos herdam a mesma transparência. Isso pode tornar o texto dentro de um elemento totalmente transparente difícil de ler.
+
+Transparência usando RGBA
+ Se você não quiser aplicar opacidade aos elementos filhos, como em nosso exemplo acima, use os valores de cor RGBA. O exemplo a seguir define a opacidade da cor de fundo e não do texto:
+
+100% opacidade
+60% de opacidade
+30% de opacidade
+10% de opacidade
+
+Você aprendeu em nosso Capítulo Cores CSS, que pode usar RGB como um valor de cor. Além de RGB, você pode usar um valor de cor RGB com um canal alfa (RGB A ) - que especifica a opacidade de uma cor.
+Um valor de cor RGBA é especificado com: rgba (vermelho, verde, azul, alfa ). O parâmetro alfa é um número entre 0,0 (totalmente transparente) e 1,0 (totalmente opaco).
+
+<head>
+<style>
+div {
+  background: rgb(0, 128, 0);
+}
+
+div.first {
+  background: rgba(0, 128, 0, 0.1);
+}
+
+div.second {
+  background: rgba(0, 128, 0, 0.3);
+}
+
+div.third {
+  background: rgba(0, 128, 0, 0.6);
+}
+</style>
+</head>
+
+--------------------------------------------------
+
+CSS Background Image
+ Imagem de fundo CSS
+ A background-image propriedade especifica uma imagem a ser usada como plano de fundo de um elemento.
+ Por padrão, a imagem é repetida para cobrir todo o elemento.
+
+Exemplo
+Defina a imagem de fundo de uma página: 
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-image: url("paper.gif");
+}
+</style>
+</head>
+
+Nota: Ao usar uma imagem de plano de fundo, use uma imagem que não perturbe o texto.
+
+<head>
+<style>
+p {
+  background-image: url("paper.gif");
+}
+</style>
+</head>
+
+-------------------------------------------------------
+
+CSS Background Repeat
+
+ Por padrão, a background-image propriedade repete uma imagem horizontal e verticalmente.
+ Algumas imagens devem ser repetidas apenas horizontal ou verticalmente, ou ficarão estranhas.
+
 
 ------------------------------------------------------------------
 Bordas CSS
