@@ -798,9 +798,233 @@ CSS Background Repeat
  Por padrão, a background-image propriedade repete uma imagem horizontal e verticalmente.
  Algumas imagens devem ser repetidas apenas horizontal ou verticalmente, ou ficarão estranhas.
 
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-image: url("gradient_bg.png");
+  background-repeat: repeat-x;
+}
+</style>
+</head>
+
+
+Dica: para repetir uma imagem verticalmente, definabackground-repeat: repeat-y;
+
+
+CSS background-repeat: no-repeat
+ Mostrar a imagem de fundo apenas uma vez também é especificado pela background-repeatpropriedade:
+
+Exemplo
+ Mostrar a imagem de fundo apenas uma vez:
+
+body {
+  background-image: url("img_tree.png");
+  background-repeat: no-repeat;
+}
+
+
+
+Posição de fundo CSS
+ A background-positionpropriedade é usada para especificar a posição da imagem de fundo.
+
+Exemplo
+ Posicione a imagem de plano de fundo no canto superior direito: 
+
+body {
+  background-image: url("img_tree.png");
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+------------------------------------------------------
+CSS Background Attachment - Anexo de plano de fundo CSS
+
+CSS background-attach
+ A background-attachment propriedade especifica se a imagem de fundo deve rolar ou ser corrigida (não rola com o resto da página):
+
+Exemplo
+ Especifique que a imagem de fundo deve ser corrigida:
+
+body {
+  background-image: url("img_tree.png");
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-attachment: fixed;
+}
+
+
+Exemplo
+ Especifique que a imagem de fundo deve rolar com o resto da página:
+
+body {
+  background-image: url("img_tree.png");
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-attachment: scroll;
+}
+
+-----------------------------------------------------
+CSS Background Shorthand
+ Plano de fundo CSS - propriedade abreviada
+ Para encurtar o código, também é possível especificar todas as propriedades do fundo em uma única propriedade. Isso é chamado de propriedade abreviada.
+
+Em vez de escrever:
+
+body {
+  background-color: #ffffff;
+  background-image: url("img_tree.png");
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+ Você pode usar a propriedade abreviada background:
+
+Exemplo
+Use a propriedade abreviada para definir as propriedades do plano de fundo em uma declaração:
+
+body {
+  background: #ffffff url("img_tree.png") no-repeat right top;
+}
+
+ Ao usar a propriedade abreviada, a ordem dos valores da propriedade é:
+
+background-color
+background-image
+background-repeat
+background-attachment
+background-position
+ 
+ Não importa se um dos valores da propriedade está faltando, desde que os outros estejam nesta ordem. Observe que não usamos a propriedade background-attachment nos exemplos acima, pois ela não tem um valor.
+
 
 ------------------------------------------------------------------
-Bordas CSS
+Bordas CSS - CSS Borders - Fronteira
+ As propriedades da borda CSS permitem que você especifique o estilo, a largura e a cor da borda de um elemento.
+
+CSS Border Style
+ A border-style propriedade especifica que tipo de borda exibir.
+ Os seguintes valores são permitidos:
+
+dotted - Define uma borda pontilhada
+dashed - Define uma borda tracejada
+solid - Define uma borda sólida
+double - Define uma borda dupla
+groove- Define uma borda com sulcos 3D. O efeito depende do valor da cor da borda
+ridge- Define uma borda estriada 3D. O efeito depende do valor da cor da borda
+inset- Define uma borda de inserção 3D. O efeito depende do valor da cor da borda
+outset- Define uma borda de início 3D. O efeito depende do valor da cor da borda
+none - Não define nenhuma fronteira
+hidden - Define uma borda oculta
+A border-stylepropriedade pode ter de um a quatro valores (para a borda superior, borda direita, borda inferior e borda esquerda).
+
+
+Exemplo
+Demonstração dos diferentes estilos de borda:
+
+p.dotted {border-style: dotted;}
+p.dashed {border-style: dashed;}
+p.solid {border-style: solid;}
+p.double {border-style: double;}
+p.groove {border-style: groove;}
+p.ridge {border-style: ridge;}
+p.inset {border-style: inset;}
+p.outset {border-style: outset;}
+p.none {border-style: none;}
+p.hidden {border-style: hidden;}
+p.mix {border-style: dotted dashed solid double;}
+
+ Nota: Nenhuma das OUTRAS propriedades de borda CSS (sobre as quais você aprenderá mais nos próximos capítulos) terá QUALQUER efeito, a menos que a border-stylepropriedade seja definida!
+
+
+CSS Border Width - Largura da Borda CSS
+ Largura da Borda CSS
+ A border-width propriedade especifica a largura das quatro bordas.
+ A largura pode ser definida como um tamanho específico (em px, pt, cm, em, etc) ou usando um dos três valores predefinidos: fino, médio ou espesso:
+
+ Exemplo
+ Demonstração das diferentes larguras de borda:
+
+ p.one {
+  border-style: solid;
+  border-width: 5px;
+}
+
+p.two {
+  border-style: solid;
+  border-width: medium;
+}
+
+p.three {
+  border-style: dotted;
+  border-width: 2px;
+}
+
+p.four {
+  border-style: dotted;
+  border-width: thick;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+p.one {
+  border-style: solid;
+  border-width: 5px;
+}
+
+p.two {
+  border-style: solid;
+  border-width: medium;
+}
+
+p.three {
+  border-style: dotted;
+  border-width: 2px;
+}
+
+p.four {
+  border-style: dotted;
+  border-width: thick;
+}
+
+p.five {
+  border-style: double;
+  border-width: 15px;
+}
+
+p.six {
+  border-style: double;
+  border-width: thick;
+}
+</style>
+</head>
+
+
+Larguras Laterais Específicas
+ A border-width propriedade pode ter de um a quatro valores (para a borda superior, borda direita, borda inferior e borda esquerda):
+
+Exemplo
+p.one {
+  border-style: solid;
+  border-width: 5px 20px; /* 5px top and bottom, 20px on the sides */
+}
+
+p.two {
+  border-style: solid;
+  border-width: 20px 5px; /* 20px top and bottom, 5px on the sides */
+}
+
+p.three {
+  border-style: solid;
+  border-width: 25px 10px 4px 35px; /* 25px top, 10px right, 4px bottom and 35px left */
+}
+
+----------------------------------------------
+CSS Border Color
 
 
 ------------------------------------------------------------------
