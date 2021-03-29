@@ -1026,9 +1026,475 @@ p.three {
 ----------------------------------------------
 CSS Border Color
 
+A border-color propriedade é usada para definir a cor das quatro bordas.
+
+ A cor pode ser definida por:
+
+ nome - especifique um nome de cor, como "vermelho"
+ HEX - especifique um valor HEX, como "# ff0000"
+ RGB - especifique um valor RGB, como "rgb (255,0,0)"
+ HSL - especifique um valor HSL, como "hsl (0, 100%, 50%)"
+ transparente
+ 
+ Nota: Se border-color não for definido, ele herda a cor do elemento.
+
+ Exemplo
+ Demonstração das diferentes cores de borda:
+
+p.one {
+  border-style: solid;
+  border-color: red;
+}
+
+p.two {
+  border-style: solid;
+  border-color: green;
+}
+
+p.three {
+  border-style: dotted;
+  border-color: blue;
+}
+
+Cores Laterais Específicas
+ A border-color propriedade pode ter de um a quatro valores (para a borda superior, borda direita, borda inferior e borda esquerda). 
+
+Exemplo
+p.one {
+  border-style: solid;
+  border-color: red green blue yellow;   /* red top, green right, blue bottom and yellow left */
+}
+
+Valores HEX
+ A cor da borda também pode ser especificada usando um valor hexadecimal (HEX):
+
+Exemplo
+
+p.one {
+  border-style: solid;
+  border-color: #ff0000; /* red */
+}
+
+
+Valores RGB
+ Ou usando valores RGB:
+
+Exemplo
+p.one {
+  border-style: solid;
+  border-color: rgb(255, 0, 0); /* red */
+}
+
+
+Valores HSL
+Você também pode usar valores HSL:
+
+Exemplo
+p.one {
+  border-style: solid;
+  border-color: hsl(0, 100%, 50%); /* red */
+}
+
+-----------------------------------------------------
+
+CSS Border Sides
+
+Borda CSS - Lados Individuais
+ A partir dos exemplos nas páginas anteriores, você viu que é possível especificar uma borda diferente para cada lado.
+ No CSS, também existem propriedades para especificar cada uma das bordas (superior, direita, inferior e esquerda):
+
+Exemplo
+
+p {
+  border-top-style: dotted;
+  border-right-style: solid;
+  border-bottom-style: dotted;
+  border-left-style: solid;
+}
+
+O exemplo acima dá o mesmo resultado que este:
+
+Exemplo
+p {
+  border-style: dotted solid;
+}
+
+
+Então, é assim que funciona:
+
+Se a border-style propriedade tiver quatro valores:
+
+estilo de borda: pontilhada sólida dupla tracejada;
+borda superior está pontilhada
+borda direita é sólida
+borda inferior é dupla
+borda esquerda está tracejada
+Se a border-stylepropriedade tiver três valores:
+
+estilo de borda: duplo sólido pontilhado;
+borda superior está pontilhada
+as bordas direita e esquerda são sólidas
+borda inferior é dupla
+Se a border-stylepropriedade tiver dois valores:
+
+estilo de borda: sólido pontilhado;
+as bordas superior e inferior são pontilhadas
+as bordas direita e esquerda são sólidas
+Se a border-stylepropriedade tiver um valor:
+
+estilo de borda: pontilhada;
+todas as quatro bordas são pontilhadas
+
+<style>
+body {
+  text-align: center;
+}
+/* Four values */
+p.four {
+  border-style: dotted solid double dashed;
+}
+
+/* Three values */
+p.three {
+  border-style: dotted solid double;
+}
+
+/* Two values */
+p.two {
+  border-style: dotted solid;
+}
+
+/* One value */
+p.one {
+  border-style: dotted;
+}
+</style>
+
+A border-stylepropriedade é usada no exemplo acima. No entanto, também funciona com border-width e border-color.
+
+-----------------------------------------------------
+
+Propriedade de borda abreviada de CSS
+ Borda CSS - propriedade abreviada
+ Como você viu na página anterior, há muitas propriedades a serem consideradas ao lidar com bordas. 
+ Para encurtar o código, também é possível especificar todas as propriedades de borda individuais em uma propriedade.
+ A border propriedade é uma propriedade abreviada para as seguintes propriedades individuais de borda:
+
+border-width
+border-style (requerido)
+border-color
+
+Exemplo
+p {
+  border: 5px solid red;
+}
+
+Você também pode especificar todas as propriedades de borda individuais para apenas um lado:
+
+Borda Esquerda
+p {
+  border-left: 6px solid red;
+  background-color: lightgrey;
+}
+
+Borda inferior
+p {
+  border-bottom: 6px solid red;
+  background-color: lightgrey;
+}
+
+-----------------------------------------------------
+
+Bordas Arredondadas CSS
+ Bordas Arredondadas CSS
+ A border-radiuspropriedade é usada para adicionar bordas arredondadas a um elemento:
+
+Exemplo
+p {
+  border: 2px solid red;
+  border-radius: 5px;
+}
+
+Exemplo
+<head>
+<style>
+p.normal {
+  border: 2px solid red;
+}
+
+p.round1 {
+  border: 2px solid red;
+  border-radius: 5px;
+}
+
+p.round2 {
+  border: 2px solid red;
+  border-radius: 8px;
+}
+
+p.round3 {
+  border: 2px solid red;
+  border-radius: 12px;
+}
+</style>
+</head>
+
+
+Mais exemplos
+
+ Todas as propriedades da borda superior em uma declaração
+ Este exemplo demonstra uma propriedade abreviada para definir todas as propriedades da borda superior em uma declaração.
+
+<head>
+<style>
+p {
+  border-style: solid;
+  border-top: thick double #ff0000;
+}
+</style>
+</head>
+
+ Definir o estilo da borda inferior
+ Este exemplo demonstra como definir o estilo da borda inferior.
+
+<head>
+<style>
+p {border-style: solid;}
+p.none {border-bottom-style: none;}
+p.dotted {border-bottom-style: dotted;}
+p.dashed {border-bottom-style: dashed;}
+p.solid {border-bottom-style: solid;}
+p.double {border-bottom-style: double;}
+p.groove {border-bottom-style: groove;}
+p.ridge {border-bottom-style: ridge;}
+p.inset {border-bottom-style: inset;}
+p.outset {border-bottom-style: outset;}
+</style>
+</head>
+
+ Definir a largura da borda esquerda
+ Este exemplo demonstra como definir a largura da borda esquerda.
+
+<head>
+<style>
+p {
+  border-style: solid;
+  border-left-width: 15px;
+}
+</style>
+</head>
+
+ Definir a cor das quatro bordas
+ Este exemplo demonstra como definir a cor das quatro bordas. Pode ter de uma a quatro cores.
+
+<head>
+<style>
+p.one {
+  border-style: solid;
+  border-color: #0000ff;
+}
+
+p.two {
+  border-style: solid;
+  border-color: #ff0000 #0000ff;
+}
+
+p.three {
+  border-style: solid;
+  border-color: #ff0000 #00ff00 #0000ff;
+}
+
+p.four {
+  border-style: solid;
+  border-color: #ff0000 #00ff00 #0000ff rgb(250,0,255);
+}
+</style>
+</head>
+
+ Definir a cor da borda direita
+ Este exemplo demonstra como definir a cor da borda direita.
+
+<head>
+<style>
+p {
+  border-style: solid;
+  border-right-color: #ff0000;
+}
+</style>
+</head>
 
 ------------------------------------------------------------------
 CSS Margins
+
+CSS Margins
+ As margens são usadas para criar espaço ao redor dos elementos, fora de quaisquer bordas definidas.
+
+CSS Margins
+ As margin propriedades CSS são usadas para criar espaço ao redor dos elementos, fora de quaisquer bordas definidas.
+ Com CSS, você tem controle total sobre as margens. Existem propriedades para definir a margem para cada lado de um elemento (superior, direita, inferior e esquerda).
+
+Margem - Lados Individuais
+ CSS tem propriedades para especificar a margem de cada lado de um elemento:
+
+margin-top
+margin-right
+margin-bottom
+margin-left
+
+Todas as propriedades de margem podem ter os seguintes valores:
+
+auto - o navegador calcula a margem
+length - comprimento - especifica uma margem em px, pt, cm, etc.
+% - especifica uma margem em % da largura do elemento que o contém
+inherit - herdar - especifica que a margem deve ser herdada do elemento pai
+
+Dica: valores negativos são permitidos.
+
+Exemplo
+ Defina margens diferentes para todos os quatro lados de um elemento <p>:
+
+p {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-right: 150px;
+  margin-left: 80px;
+}
+
+Dica: valores negativos são permitidos.
+
+<head>
+<style>
+div {
+  border: 1px solid black;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-right: 150px;
+  margin-left: 80px;
+  background-color: lightblue;
+}
+</style>
+</head>
+
+--------------------------------------------
+
+Margem - Propriedade abreviada
+ Para encurtar o código, é possível especificar todas as propriedades de margem em uma propriedade.
+
+ A margin propriedade é uma propriedade abreviada para as seguintes propriedades de margem individuais:
+
+margin-top
+margin-right
+margin-bottom
+margin-left
+Então, é assim que funciona:
+
+Se a margin propriedade tiver quatro valores:
+
+margem: 25px 50px 75px 100px;
+ a margem superior é 25px
+ a margem direita é 50px
+ margem inferior é 75px
+ a margem esquerda é 100px
+
+Exemplo
+ Use a propriedade abreviação de margem com quatro valores:
+
+p {
+  margin: 25px 50px 75px 100px;
+}
+
+
+Se a margin propriedade tiver dois valores:
+
+margem: 25px 50px;
+as margens superior e inferior são 25px
+margens direita e esquerda são 50px
+Exemplo
+Use a propriedade abreviação de margem com dois valores: 
+
+p {
+  margin: 25px 50px;
+}
+
+Se a margin propriedade tiver um valor:
+
+margem: 25px;
+todas as quatro margens têm 25px
+Exemplo
+Use a propriedade abreviação de margem com um valor: 
+
+p {
+  margin: 25px;
+}
+
+
+O valor automático
+ Você pode definir a propriedade margin auto para centralizar horizontalmente o elemento em seu contêiner.
+ O elemento então ocupará a largura especificada e o espaço restante será dividido igualmente entre as margens esquerda e direita.
+
+Exemplo
+Use margem: auto:
+
+div {
+  width: 300px;
+  margin: auto;
+  border: 1px solid red;
+}
+
+
+O valor herdado
+ Este exemplo permite que a margem esquerda do elemento <p class = "ex1"> seja herdada do elemento pai (<div>):
+
+Exemplo
+Uso do valor herdado:
+
+div {
+  border: 1px solid red;
+  margin-left: 100px;
+}
+
+p.ex1 {
+  margin-left: inherit;
+}
+
+Exemplo
+<head>
+<style>
+div {
+  border: 1px solid red;
+  margin-left: 100px;
+}
+
+p.ex1 {
+  margin-left: inherit;
+}
+</style>
+</head>
+
+---------------------------------
+
+CSS Margin Collapse
+ Às vezes, duas margens colapsam em uma única margem.
+
+Redução da margem
+ As margens superior e inferior dos elementos às vezes são reduzidas em uma única margem que é igual à maior das duas margens.
+ Isso não acontece nas margens esquerda e direita! Apenas as margens superior e inferior!
+
+Veja o seguinte exemplo:
+
+Exemplo
+ Demonstração de colapso da margem:
+
+h1 {
+  margin: 0 0 50px 0;
+}
+
+h2 {
+  margin: 20px 0 0 0;
+}
+
+No exemplo acima, o elemento <h1> tem uma margem inferior de 50px e o elemento <h2> tem uma margem superior definida para 20px.
+O bom senso parece sugerir que a margem vertical entre <h1> e <h2> seria um total de 70px (50px + 20px). Mas, devido ao colapso da margem, a margem real acaba sendo 50px.
 
 
 ------------------------------------------------------------------
