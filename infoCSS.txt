@@ -1695,15 +1695,371 @@ p.padding2 {
 </style>
 </head>
 ------------------------------------------------------------------
-Altura / largura CSS
+Altura / largura CSS - CSS Height and Width
 
+ O CSS height e as width propriedades são usados ​​para definir a altura e a largura de um elemento.
+ A max-width propriedade CSS é usada para definir a largura máxima de um elemento.
+
+Exemplo
+
+<style>
+div {
+  height: 50px;
+  width: 100%;
+  border: 1px solid #4CAF50;
+}
+</style>
+</head>
+
+
+CSS Configuração de altura e largura
+ As propriedades heighte widthsão usadas para definir a altura e a largura de um elemento. 
+ As propriedades de altura e largura não incluem preenchimento, bordas ou margens. Ele define a altura / largura da área dentro do preenchimento, borda e margem do elemento.
+
+
+Valores CSS de altura e largura
+ As propriedades height e width podem ter os seguintes valores:
+
+auto- Este é o padrão. O navegador calcula a altura e largura
+length - Define a altura / largura em px, cm etc.
+% - Define a altura / largura em porcentagem do bloco que o contém
+initial - Define a altura / largura para seu valor padrão
+inherit - A altura / largura será herdada de seu valor pai
+
+Exemplo
+Defina a altura e a largura de um elemento <div>:
+
+div {
+  height: 200px;
+  width: 50%;
+  background-color: powderblue;
+}
+
+
+Nota: Lembre - se de que as propriedades height e width não incluem preenchimento, bordas ou margens! Eles definem a altura / largura da área dentro do preenchimento, borda e margem do elemento!
+
+Configurando largura máxima
+ A max-width propriedade é usada para definir a largura máxima de um elemento.
+ O max-width pode ser especificado em valores de comprimento , como px, cm, etc., ou em porcentagem (%) do bloco que o contém, ou definido como nenhum (este é o padrão. Significa que não há largura máxima).
+
+ O problema <div> acima ocorre quando a janela do navegador é menor que a largura do elemento (500px). O navegador então adiciona uma barra de rolagem horizontal à página.
+
+ Em max-width vez disso, o uso , nessa situação, melhorará o manuseio do navegador de pequenas janelas.
+
+Dica: arraste a janela do navegador para menos de 500 px de largura, para ver a diferença entre os dois divs!
+
+Este elemento tem uma altura de 100 pixels e uma largura máxima de 500 pixels.
+Nota: O valor das max-width substituições de propriedade width.
+
+Exemplo
+Este elemento <div> tem uma altura de 100 pixels e uma largura máxima de 500 pixels: 
+
+div {
+  max-width: 500px;
+  height: 100px;
+  background-color: powderblue;
+}
+
+
+Experimente você mesmo - exemplos
+
+Defina a altura e a largura dos elementos
+Este exemplo demonstra como definir a altura e a largura de diferentes elementos.
+
+Definir a altura e largura de uma imagem usando porcentagem
+Este exemplo demonstra como definir a altura e largura de uma imagem usando um valor percentual.
+
+Definir a largura mínima e a largura máxima de um elemento
+Este exemplo demonstra como definir uma largura mínima e máxima de um elemento usando um valor de pixel.
+
+Definir altura mínima e altura máxima de um elemento
+Este exemplo demonstra como definir uma altura mínima e máxima de um elemento usando um valor de pixel.
+
+Todas as propriedades de dimensão CSS
+
+height
+max-height
+max-width
+min-height
+min-width
+width
 
 ------------------------------------------------------------------
 CSS Box Model
 
+ Todos os elementos HTML podem ser considerados caixas.
+ O CSS Box Model
+ Em CSS, o termo "modelo de caixa" é usado para falar sobre design e layout.
+ O modelo de caixa CSS é essencialmente uma caixa que envolve todos os elementos HTML. Consiste em: margens, bordas, preenchimento e o conteúdo real. A imagem abaixo ilustra o modelo da caixa:
+
+Explicação das diferentes partes:
+
+Conteúdo - o conteúdo da caixa, onde o texto e as imagens aparecem
+Preenchimento - limpa uma área ao redor do conteúdo. O preenchimento é transparente
+Borda - uma borda que circunda o preenchimento e o conteúdo
+Margem - Limpa uma área fora da borda. A margem é transparente
+O modelo de caixa nos permite adicionar uma borda ao redor dos elementos e definir o espaço entre os elementos.
+
+Exemplo
+Demonstração do modelo da caixa:
+
+div {
+  width: 300px;
+  border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+}
+
+
+Largura e altura de um elemento
+ Para definir a largura e a altura de um elemento corretamente em todos os navegadores, você precisa saber como funciona o modelo de caixa.
+
+ Importante: ao definir as propriedades de largura e altura de um elemento com CSS, você apenas define a largura e a altura da área de conteúdo. Para calcular o tamanho total de um elemento, você também deve adicionar preenchimento, bordas e margens.
+
+Exemplo
+Este elemento <div> terá uma largura total de 350 px: 
+
+div {
+  width: 320px;
+  padding: 10px;
+  border: 5px solid gray;
+  margin: 0;
+}
+
+Aqui está o cálculo:
+320 px (largura)
++ 20 px ( preenchimento esquerdo + direito)
++ 10 px (margem esquerda + direita) + 0 px (margem esquerda + direita)
+= 350 px
+ A largura total de um elemento deve ser calculada assim:
+ Largura total do elemento = largura + preenchimento esquerdo + preenchimento direito + borda esquerda + borda direita + margem esquerda + margem direita
+
+ A altura total de um elemento deve ser calculada assim:
+ Altura total do elemento = altura + preenchimento superior + preenchimento inferior + borda superior + borda inferior + margem superior + margem inferior
+------------------------------------------------------------------
+------------------------------------------------------------------
+
+CSS Outline
+
+ Um contorno é uma linha desenhada fora da borda do elemento.
+
+ <head>
+<style>
+p {
+  border: 2px solid black;
+  outline: #4CAF50 solid 10px;
+  margin: auto;  
+  padding: 20px;
+  text-align: center;
+}
+</style>
+</head>
+
+CSS Outline
+ Um contorno é uma linha que é desenhada ao redor dos elementos, FORA das bordas, para fazer o elemento "se destacar".
+
+ CSS tem as seguintes propriedades de contorno:
+
+outline-style
+outline-color
+outline-width
+outline-offset
+outline
+
+CSS Outline Style
+A outline-style propriedade especifica o estilo do contorno e pode ter um dos seguintes valores:
+
+dotted - Define um contorno pontilhado
+dashed - Define um contorno tracejada
+solid - Define um contorno sólido
+double - Define um contorno duplo
+groove - Define um contorno 3D sulcado
+ridge - Define um contorno 3D estriado
+inset - Define um contorno de inserção 3D
+outset - Define um contorno de início 3D
+none - Não define nenhum contorno
+hidden - Define um contorno oculto
+O exemplo a seguir mostra os diferentes outline-stylevalores:
+
+Exemplo
+<head>
+<style>
+p {outline-color:red;}
+
+p.dotted {outline-style: dotted;}
+p.dashed {outline-style: dashed;}
+p.solid {outline-style: solid;}
+p.double {outline-style: double;}
+p.groove {outline-style: groove;}
+p.ridge {outline-style: ridge;}
+p.inset {outline-style: inset;}
+p.outset {outline-style: outset;}
+</style>
+</head>
+
+Nota: Nenhuma das outras propriedades de contorno (sobre as quais você aprenderá mais nos próximos capítulos) terá QUALQUER efeito, a menos que a outline-style propriedade seja definida!
+
+----------------------------------------------------------------
+Largura de Contorno CSS
+ Largura de Contorno CSS
+ A outline-width propriedade especifica a largura do contorno e pode ter um dos seguintes valores:
+
+fino (normalmente 1px)
+médio (normalmente 3px)
+grosso (normalmente 5px)
+Um tamanho específico (em px, pt, cm, em, etc)
+
+<head>
+<style>
+p.ex1 {
+  border: 1px solid black;
+  outline-style: solid;
+  outline-color: red;
+  outline-width: thin;
+}
+
+p.ex2 {
+  border: 1px solid black;
+  outline-style: solid;
+  outline-color: red;
+  outline-width: medium;
+}
+
+p.ex3 {
+  border: 1px solid black;
+  outline-style: solid;
+  outline-color: red;
+  outline-width: thick;
+}
+
+p.ex4 {
+  border: 1px solid black;
+  outline-style: solid;
+  outline-color: red;
+  outline-width: 4px;
+}
+</style>
+</head>
 
 ------------------------------------------------------------------
-CSS Outline
+
+CSS Outline Color
+ A outline-color propriedade é usada para definir a cor do contorno.
+
+A cor pode ser definida por:
+
+nome - especifique um nome de cor, como "vermelho"
+HEX - especifique um valor hexadecimal, como "# ff0000"
+RGB - especifique um valor RGB, como "rgb (255,0,0)"
+HSL - especifique um valor HSL, como "hsl (0, 100%, 50%)"
+inverter - executa uma inversão de cores (o que garante que o contorno seja visível, independentemente da cor de fundo)
+
+<head>
+<style>
+p.ex1 {
+  border: 2px solid black;
+  outline-style: solid;
+  outline-color: red;
+}
+
+p.ex2 {
+  border: 2px solid black;
+  outline-style: dotted;
+  outline-color: blue;
+}
+
+p.ex3 {
+  border: 2px solid black;
+  outline-style: outset;
+  outline-color: grey;
+}
+</style>
+</head>
+
+Valores HEX
+ A cor do contorno também pode ser especificada usando um valor hexadecimal (HEX):
+
+Exemplo
+p.ex1 {
+  outline-style: solid;
+  outline-color: #ff0000; /* red */
+}
+
+Valores RGB
+ Ou usando valores RGB:
+
+Exemplo
+p.ex1 {
+  outline-style: solid;
+  outline-color: rgb(255, 0, 0); /* red */
+}
+
+Valores HSL
+ Você também pode usar valores HSL:
+
+Exemplo
+p.ex1 {
+  outline-style: solid;
+  outline-color: hsl(0, 100%, 50%); /* red */
+}
+
+Inverter cor
+ O exemplo a seguir usa outline-color: invert, que realiza uma inversão de cores. Isso garante que o contorno seja visível, independentemente da cor de fundo:
+
+Um contorno sólido invertido.
+
+Exemplo
+p.ex1 {
+  border: 1px solid yellow;
+  outline-style: solid;
+  outline-color: invert;
+}
+
+--------------------------------------------------------------
+CSS Outline Shorthand
+Esboço CSS - propriedade abreviada
+
+ A outline propriedade é uma propriedade abreviada para definir as seguintes propriedades individuais de contorno:
+
+outline-width
+outline-style (obrigatório)
+outline-color
+
+A outline propriedade é especificada como um, dois ou três valores da lista acima. A ordem dos valores não importa.
+
+<head>
+<style>
+p.ex1 {outline: dashed;}
+p.ex2 {outline: dotted red;}
+p.ex3 {outline: 5px solid yellow;}
+p.ex4 {outline: thick ridge pink;}
+</style>
+</head>
+--------------------------------------------------------
+
+CSS Outline Offset
+
+ A outline-offset propriedade adiciona espaço entre um contorno e a borda / borda de um elemento. O espaço entre um elemento e seu contorno é transparente.
+ O exemplo a seguir especifica um contorno de 15px fora da borda da borda:
+
+<head>
+<style>
+p {
+  margin: 30px;
+  border: 1px solid black;
+  outline: 2px solid red;
+  outline-offset: 10px;
+}
+</style>
+</head>
+
+Todas as propriedades CSS Outline
+Property	Description
+outline	A shorthand property for setting outline-width, outline-style, and outline-color in one declaration
+outline-color	Sets the color of an outline
+outline-offset	Specifies the space between an outline and the edge or border of an element
+outline-style	Sets the style of an outline
+outline-width	Sets the width of an outline
 
 
 ------------------------------------------------------------------
